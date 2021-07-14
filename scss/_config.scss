@@ -1,0 +1,24 @@
+//partial and module
+$font-stack: Arial, Helvetica, sans-serif;
+$light-color: #f4f4f4;
+$primary-color: #0e6cff;
+$secondary-color: #ff8700;
+
+//create function
+// set up text based on the background
+//function example in sass
+// the parameter should have the $ sign before it 
+@function set-text-color($color) {
+  @if (lightness($color) > 70) {
+    @return #333;
+  } @else {
+    @return #fff;
+  }
+}
+// set background and text-color
+//mixin like a function but it doesn't return anything
+// mix between set background-color and color
+@mixin set-background($color) {
+  background-color: $color;
+  color: set-text-color($color);
+}

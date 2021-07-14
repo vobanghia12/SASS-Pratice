@@ -1,0 +1,22 @@
+//inheritance
+%btn {
+  display: inline-block;
+  border-radius: 5px;
+  padding: 8px 20px;
+  margin: 3px;
+  //& represent for parent
+  &:hover {
+    transform: scale(0.98);
+  }
+}
+// because we've alreay import the file in the main document, so we are authorized to access into _config
+.btn-primary {
+  @extend %btn;
+  //background-color: lighten($primary-color, 10%);
+  @include set-background(lighten($primary-color, 10%));
+}
+.btn-secondary {
+  @extend %btn;
+  //background-color: $secondary-color;
+  @include set-background($secondary-color);
+}
